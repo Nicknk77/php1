@@ -12,7 +12,7 @@ do {
 }
 while ($num < 1);
 for ($i = 0, $j = 0, $flag = true; $i < $num; $i++) {
-    if ($j < count($fingers) && $j >= 0 && $flag == true) {
+    if ($j < count($fingers) && $j >= 0 && $flag) {
         $j++;
         $finger = $fingers[$j-1];
     }else {
