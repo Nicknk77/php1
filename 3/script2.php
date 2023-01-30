@@ -31,16 +31,14 @@ if (count($wishes_random) >= count($epithet_random)) {
     $i = 0;
     while(count($epithet_random)) {
         $phrase[] = implode(' ', [$epithet_random[$i], $wishes_random[$i]]);
-        unset($epithet_random[$i]);
-        unset($wishes_random[$i]);
+        unset($epithet_random[$i], $wishes_random[$i]);
         $i++;
     } 
 } else {
     $i = 0;
     while(count($wishes_random)) {
         $phrase[] = implode(' ', [$epithet_random[$i], $wishes_random[$i]]);
-        unset($epithet_random[$i]);
-        unset($wishes_random[$i]);
+        unset($epithet_random[$i], $wishes_random[$i]);
         $i++;
     } 
 }

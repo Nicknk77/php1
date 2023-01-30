@@ -42,7 +42,7 @@ $students = [
 
     $middle1 = array_sum($students['ИТ20'])/count($students['ИТ20']);
     $middle2 = array_sum($students['БАП20'])/count($students['БАП20']);
-    echo ($middle1 > $middle2) ? "Выше средний бал - $middle1 у группы ИТ20" : "Больший средний бал - $middle2 у группы БАП20\n";
+    echo ($middle1 > $middle2) ? "Выше средний бал - $middle1 у группы ИТ20" : "Выше средний бал - $middle2 у группы БАП20\n";
 
     foreach($students as $key => $group) {
         foreach ($group as $name => $mark) {
