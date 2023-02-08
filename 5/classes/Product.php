@@ -5,9 +5,16 @@ class Product {
     private float $price;
     private array $components;
 
-    public function __construct(string $title, float $price) {
+    public function __construct(string $title, float $price = 0, array $items = []) {
         $this->title = $title;
         $this->price = $price;
+        if (count($items) > 0) {
+            foreach ($items as $item) {
+                $this->components[] = $item->getTitle();
+                $this->price += $item->getPrice();
+            }
+        }
+        return $this;
     }
 
     public function getTitle(){
@@ -32,11 +39,8 @@ class Product {
         return $this->components;
     }
 
-    public static function setComponents(...$kits) {
-        $i = $components.length ?? 0;
-        foreach ($kits as $kit) {
-            $components[$i][] = $kit;
-        }
+    public static function setComponents($component) {
+        $this->components[] = $component;
         return $this;
     }
 }

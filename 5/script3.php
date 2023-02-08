@@ -19,7 +19,7 @@ require_once 'classes/Cart.php';
 
 /**
  * $list - array of titles for products
- * return array of Products
+ * returns array of Products
  */
 function getCatalog(array $list, array $prices) :array {
     $catalog = [];
@@ -29,12 +29,19 @@ function getCatalog(array $list, array $prices) :array {
     return $catalog;
 }
 
+
 $user1 = new User('Mikle', 'post@male.pu');
 $catalog = getCatalog($items, $prices);     // создали корзину
-$newCart = new Cart($user1, $catalog[0]);
+
+$complex = new Product('КлаваМышь', 0 , [$catalog[0], $catalog[1]]);                // сложный товар
+$complex2 = new Product('Набор №2', 0 , [$catalog[0], $catalog[1], $catalog[5]]);   // сложный товар
+$complex3 = new Product('Набор №21', 0 , [$complex, $catalog[3]]);                  // сложный товар
+
+$newCart = new Cart($user1, $catalog[0]);   
 $newCart->addProduct($catalog[1]);          // добавили товар
 $newCart->addProduct($catalog[2]);          // добавили товар
-$newCart->addProduct($catalog[5]);
+$newCart->addProduct($catalog[4]);
+$newCart->addProduct($complex2);
 
 
 echo "\nПокупатель: " . $newCart->getBuyer()->getUsername() . "\n";
@@ -44,8 +51,14 @@ foreach ($newCart->getProducts() as $product) {
 echo"Сумма товаров в корзине: " . $newCart->calcTotal() . "$\n\n";
 
 $newCart->delProduct('клава');  // удалили товар из корзины
+
 echo "----------- удалили из корзины клаву -----------\n\n";
 foreach ($newCart->getProducts() as $product) {
     echo $product->getTitle() . " - " . $product->getPrice() . "$\n";
 }
 echo"Сумма товаров в корзине: " . $newCart->calcTotal() . "$\n\n";
+
+echo "\nСоставной товар и его свойство components: ";
+foreach ($complex3->getComponents() as $part) {
+    echo "\n" . $part;  
+}
