@@ -9,7 +9,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     unset($_COOKIE['userIn']);
     setcookie('list', null, -1);
     unset($_COOKIE['list']);
-    unset($_SESSION['list']);
 
     if (isset($_SESSION['user'])) unset($_SESSION['user']);
     header('Location: /');

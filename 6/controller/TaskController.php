@@ -21,8 +21,12 @@ if (isset($_SESSION['user']) &&  $name) {
     }
 
     if (!is_null($list)) $list = explode(',', $_COOKIE['list']);
-    
-    $_SESSION['list'] = TaskProvider::getUndoneList($list);
+    if (isset($_GET['todo'])) { 
+        unset($list[$_GET['todo']]);
+        setcookie('list',implode(',', $list));
+        header('Location:?controller=todo');
+    }
+    $tasks = TaskProvider::getUndoneList($list);
     
     require_once 'view/todo.php';
     

@@ -41,10 +41,11 @@
     </div>
     </header>
     <div>
-        <?php if (isset($_SESSION['list']) && count($_SESSION['list']) > 0) { ?>
+        <?php if (isset($tasks) && count($tasks) > 0) { ?>
         <ul>
-            <?php foreach ($_SESSION['list'] as $task) : ?>
-            <li><?php echo $task->getDescription(); ?><a href="?controller=todo&todo=done">v</a></li>
+            <?php foreach ($tasks as $index=>$task) : ?>
+            <li><?php echo $task->getDescription(); ?>
+            <a href="?controller=todo&todo=<?=$index?>">v</a></li>
             <?php endforeach; ?>
         </ul>
         <?php } ?>
@@ -57,4 +58,3 @@
     </div>
 </body>
 </html>
-<!-- var_dump($_SESSION['list']); -->
