@@ -12,8 +12,7 @@ require_once 'classes/Comment.php';
 require_once 'classes/Taskservice.php';
 
 $user1 = new User('Mikle', 'post@male.pu');
-$task = new Task($user1);
-$task->setDescription('Помыть машину');
+$task = new Task($user1, 'Помыть машину');
 $task->setPriority(2);
 
 $comments = [];
@@ -22,7 +21,7 @@ $comments[] = TaskService::addComment($task, 'comment number two');
 
 $result = $comments[0]->getAuthor()->getUsername();
 $result .= ": \nпервый комментарий - " .$comments[0]->getText();
-$result .= ": \nвторой комментарий - " .$comments[1]->getText();
+$result .= "\nвторой комментарий - " .$comments[1]->getText();
 
 // print_r($comments);
 echo($result);

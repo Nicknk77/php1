@@ -23,7 +23,6 @@ class Product {
 
     public function setTitle($title){
         $this->title = $title;
-        return $this;
     }
 
     public function getPrice() {
@@ -31,8 +30,7 @@ class Product {
     }
 
     public function setPrice($price) {
-        $this->price = $price;
-        return $this;
+        $price = $price;
     }
 
     public function getComponents() {

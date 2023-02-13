@@ -9,9 +9,7 @@ class TaskService {
 
     public static function addComment(Task $task, string $text): Comment {
         $author = $task->user->getUsername();
-        $task = $task;
         return new Comment($task, $text);
-
     }
 
 }

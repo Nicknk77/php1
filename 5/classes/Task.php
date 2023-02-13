@@ -6,14 +6,16 @@ class Task {
     private DateTime $dateCreated;
     private DateTime $dateUpdated;
     private DateTime $dateDone;
-    private ?int $priority;
+    private int $priority;
     private bool $isDone;
     
-    public function __construct(User $user) {
+    public function __construct(User $user, string $task) {
         $this->user = $user;
-        $this->description = $user->getUsername();
+        $this->description = $task;
         $this->dateCreated = new DateTime();
+        $this->dateUpdated = new DateTime();
         $this->isDone = false;
+        $this->priority = 0;
         return $this;
     }
 
@@ -84,7 +86,7 @@ class Task {
      */
     public function getPriority(): int
     {
-        return $this->priority ?? 0;
+        return $this->priority;
     }
 
     public function getIsDone(): bool {

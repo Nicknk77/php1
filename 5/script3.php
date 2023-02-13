@@ -59,6 +59,6 @@ foreach ($newCart->getProducts() as $product) {
 echo"Сумма товаров в корзине: " . $newCart->calcTotal() . "$\n\n";
 
 echo "\nСоставной товар и его свойство components: ";
-foreach ($complex3->getComponents() as $part) {
+foreach ($complex2->getComponents() as $part) {
     echo "\n" . $part;  
 }

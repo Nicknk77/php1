@@ -12,8 +12,8 @@ require_once 'classes/User.php';
 require_once 'classes/Task.php';
 
 
-$task = new Task(new User('Mikle', 'post@male.pu'));
-$task->setDescription('Помыть машину');
+$task = new Task(new User('Mikle', 'post@male.pu'), 'Помыть машину');
+// $task->setDescription('Помыть машину');
 $task->setPriority(2);
 $result = $task->user->getUsername() . "\n";
 $result .= $task->getDescription() . "\nприоритет задания - " . $task->getPriority();

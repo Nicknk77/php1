@@ -18,7 +18,6 @@ class User {
 
        public function setUsername(string $username) {
         $this->username = $username;
-        return $this;
     }
 
     public function getEmail() {
@@ -27,7 +26,6 @@ class User {
 
        public function setEmail(string $email) {
         $this->email = $email;
-        return $this;
     }
 
        public function getSex() {
@@ -36,7 +34,6 @@ class User {
 
        public function setSex(?string $sex) {
         $this->sex = $sex;
-        return $this;
     }
 
     public function getAge() {
@@ -45,14 +42,12 @@ class User {
 
     public function setAge(?int $age) {
         $this->age = $age;
-        return $this;
     }
 
     /**
      * Get the value of isActive
      */ 
-    public function getIsActive()
-    {
+    public function getIsActive() {
         return $this->isActive;
     }
 
@@ -61,10 +56,7 @@ class User {
      *
      * @return  self
      */ 
-    public function setIsActive(?bool $isActive)
-    {
+    public function setIsActive(?bool $isActive) {
         $this->isActive = $isActive ?? true;
-
-        return $this;
     }
 }
